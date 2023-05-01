@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Convert Measurements In Length</title>
+</head>
+ 
+<body>
+	  <h1>Mesurement In Length</h1>
+  			<p>Enter a value and select its unit:</p>
+ 			<input type="number" id="input">
+
+  				<select id="unit">
+    				<option value="m">Meters</option>
+    				<option value="km">Kilometers</option>
+    				<option value="ft">Feet</option>
+    				<option value="mi">Miles</option>
+  				</select>
+
+ 	 <button onclick="convert()">Convert</button>
+		  <p id="result"></p>
+
+		<script>
+ 			function convert() {
+  				// get the input value and unit
+ 				 var input = document.getElementById('input').value;
+ 				 var unit = document.getElementById('unit').value;
+  
+ 					 // perform the conversion based on the selected unit
+  					switch(unit) {
+   					 case 'm':
+     					 var meters = input;
+     					 var kilometers = meters / 1000;
+    					 var feet = meters * 3.28084;
+     					 var miles = meters * 0.000621371;
+     				 break;
+    				 case 'km':
+     					 var kilometers = input;
+     					 var meters = kilometers * 1000;
+     					 var feet = meters * 3.28084;
+     					 var miles = meters * 0.000621371;
+      				 break;
+    				 case 'ft':
+     					 var feet = input;
+     					 var meters = feet / 3.28084;
+     					 var kilometers = meters / 1000;
+     					 var miles = meters * 0.000621371;
+      				 break;
+      				 case 'mi':
+     					 var miles = input;
+     					 var meters = miles / 0.000621371;
+     					 var kilometers = meters / 1000;
+     					 var feet = meters * 3.28084;
+     				 break;
+  					}
+  
+ 			var result = document.getElementById('result');
+  			result.innerHTML = meters.toFixed(2) + ' meters<br>' +
+                      kilometers.toFixed(2) + ' kilometers<br>' +
+                      feet.toFixed(2) + ' feet<br>' +
+                      miles.toFixed(2) + ' miles';
+			}
+		</script>
+</body>
+</html>
